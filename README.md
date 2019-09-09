@@ -33,6 +33,64 @@ Don't forget to configure your build system to use the new files you've copied.
 
 ## Usage
 
+Lets assume, we have the following connection with IC.
+
+![595](https://raw.githubusercontent.com/linuxenko/avr-shiftout/dev/schematic/595-pinout.png)
+
+
+As we can see, the `DATA` pin is connected to `PORTD0`, `CLOCK` to `PORTD1` and 
+`LATCH` is connected with `PORTD2`.
+
+
+```c
+#include <inttypes.h>
+
+#include "shiftout.h"
+
+int main(void) {
+  /* Could be multiple ics */
+  ShiftIC ic;
+
+  /*
+   * Lets pretend we have some leds connected, and we're trying to light second
+   * and third one.
+   */
+  uint8_t leds = 0b00000110;
+
+  /* Initialization helper to keep the library usage as simple as posible:
+   * 1. reference to ShiftIC instance
+   * 2. port direction reference
+   * 3. port reference
+   * 4. data pin
+   * 5. clock pin
+   * 6. latch/enable/mr pin
+  */
+  createShift(&ic, &DDRD, &PORTD, PORTD0, PORTD1, PORTD2);
+
+  /* Ta-da !! */
+  shiftOut(&ic, MBFIRST, leds);
+
+  return 0;
+}
+```
+
+
+## API
+
+```c
+ShiftIC * createShift(ShiftIC *ic,
+    volatile uint8_t *dirPort, volatile uint8_t *dataPort,
+    uint8_t dataPin, uint8_t clockPin, uint8_t enablePin);
+
+ShiftIC * createShift2(ShiftIC *ic,
+    volatile uint8_t *dirPort, volatile uint8_t *dataPort,
+    uint8_t dataPin, uint8_t clockPin);
+
+void shiftOut(ShiftIC *ic, uint8_t bitOrder, uint8_t val);
+
+void shiftOn(ShiftIC *ic);
+void shiftOff(ShiftIC *ic);
+```
 
 ## License
 
