@@ -67,6 +67,9 @@ int main(void) {
   */
   createShift(&ic, &DDRD, &PORTD, PORTD0, PORTD1, PORTD2);
 
+  /* We could just enable it permanently or switch it on/off anytime we need it */
+  shiftOn(&ic);
+
   /* Ta-da !! */
   shiftOut(&ic, MBFIRST, leds);
 
