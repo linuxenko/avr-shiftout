@@ -1,11 +1,11 @@
 ## Shiftout for AVR
 
-[![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=103)](https://opensource.org/licenses/GPL-3.0/)
-
-----
 An `shiftout` implementation for AVR microcontrollers with `avr-gcc` support for multiple ICs.
 
-## TL;DR
+[![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=103)](https://opensource.org/licenses/GPL-3.0/)
+
+
+## Why ?
 
 I've noticed there're many implementations available but neither one of them are suitable for
 an issue I faced into. I wanted to have a relly small codebase with support of multiple hardware implementations. It had to be something that I can optimize and understand well enough to get rid of some parts of code any time I need it. Then I've decided to make a single library with simple but powerful codebase that I can share with everyone who could have the same problem I had.
@@ -18,7 +18,7 @@ an issue I faced into. I wanted to have a relly small codebase with support of m
   * Multiple ICS in a single runtime support (on different ports of an AVR)
   * Support three and two wire connections
 
-## Issues/features
+## Known issues
 
   * Every IC should be configured individualy if you're intended to use two or
   more of them on a single port.
@@ -36,17 +36,17 @@ Don't forget to configure your build system to use the new files you've copied.
 
 ## License
 
-  This program is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
+  This program is free software: you can redistribute it and/or modify<br>
+  it under the terms of the GNU General Public License as published by<br>
+  the Free Software Foundation, either version 3 of the License, or<br>
   (at your option) any later version.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,<br>
+  but WITHOUT ANY WARRANTY; without even the implied warranty of<br>
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br>
+  GNU General Public License for more details.<br>
 
-  You should have received a copy of the GNU General Public License
+  You should have received a copy of the GNU General Public License<br>
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
