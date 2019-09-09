@@ -74,6 +74,41 @@ int main(void) {
 }
 ```
 
+Two wire using `74hc164` example
+
+![164](https://raw.githubusercontent.com/linuxenko/avr-shiftout/dev/schematic/164-pinout.png)
+
+```c
+#include <inttypes.h>
+
+#include "shiftout.h"
+
+int main(void) {
+  /* Could be multiple ics */
+  ShiftIC ic;
+
+  /*
+   * Lets pretend we have some leds connected, and we're trying to light second
+   * and third one.
+   */
+  uint8_t leds = 0b00000110;
+
+  /* Initialization helper to keep the library usage as simple as posible:
+   * 1. reference to ShiftIC instance
+   * 2. port direction reference
+   * 3. port reference
+   * 4. data pin
+   * 5. clock pin
+  */
+  createShift2(&ic, &DDRD, &PORTD, PORTD0, PORTD1);
+
+  /* Ta-da !! */
+  shiftOut(&ic, MBFIRST, leds);
+
+  return 0;
+}
+```
+
 
 ## API
 
