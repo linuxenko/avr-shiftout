@@ -1,6 +1,6 @@
 ## Shiftout for AVR
 
-An `shiftout` implementation for AVR microcontrollers with `avr-gcc` support for multiple ICs.
+`shiftout` implementation for AVR microcontrollers with `avr-gcc` support for multiple ICs.
 
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=103)](https://opensource.org/licenses/GPL-3.0/)
 
@@ -27,9 +27,9 @@ an issue I faced into. I wanted to have a relly small codebase with support of m
 
 ## Installation
 
-Installation process is pretty simple, just copy `shiftout.c` and `shiftout.h` into your
-projct's folder.
-Don't forget to configure your build system to use the new files you've copied.
+  * Installation process is pretty simple, just copy `shiftout.c` and `shiftout.h` into your
+projct.
+  * Don't forget to configure your build system to use the new files you've copied.
 
 ## Usage
 
